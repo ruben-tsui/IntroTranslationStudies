@@ -46,10 +46,14 @@ def en2zh(s, lang='en', zhalt=0):
             print("Other names:")
             for a in aliases:
                 print(f"  {a['value']}")
+        if 'en' in person.data['aliases']:
+            aliases_ed = person.data['aliases']['en']
+            for a in aliases_ed:
+                print(f"  {a['value']}")
         if 'zh' in person.data['descriptions']:
             desc = person.data['descriptions']['zh']['value']
             print(f"[Note] {desc}")
-        print('-'*20)
+        print('-'*50)
         enList[qid] = (zh, en)
     return person, enList
 
